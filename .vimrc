@@ -1,3 +1,8 @@
+augroup HighlightTrailingSpaces
+  autocmd!
+  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+augroup END
 set nocompatible               " be iMproved
 filetype off                   " required!
 set laststatus=2   " Always show the statusline
@@ -6,7 +11,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 " let Vundle manage Vundle
-" required! 
+" required!
 Bundle 'gmarik/vundle'
 
 " My Bundles here:
@@ -33,6 +38,7 @@ map ,gc :Gcommit<Cr>
 map ,gs :Gstatus<Cr>
 filetype plugin indent on
 set t_Co=256
+syntax on
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -44,4 +50,5 @@ set smartindent
 set number
 set cursorline
 set cursorcolumn
+set tw=80
 colorscheme molokai
